@@ -14,19 +14,17 @@ RUN apt-get update && \
 USER $NB_USER
 
 # Install Python 3 packages
-RUN conda install --quiet --yes wheel
-RUN conda update --yes pip wheel setuptools
-RUN conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt whoosh xlsxwriter xlrd unidecode
-RUN conda install --quiet --yes -c conda-forge scikit-umfpack fiona rasterio
-
-RUN pip install --user --no-cache-dir eight
-RUN pip install --user --no-cache-dir brightway2 pandarus constructive_geometries pillow shapely
-RUN pip install --user --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3
+RUN conda install --quiet --yes wheel && \
+    conda update --yes pip wheel setuptools && \
+    conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt whoosh xlsxwriter xlrd unidecode && \
+    conda install --quiet --yes -c conda-forge scikit-umfpack fiona rasterio && \
+    pip install --user --no-cache-dir eight && \
+    pip install --user --no-cache-dir brightway2 pandarus constructive_geometries pillow shapely && \
+    pip install --user --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3 && \
+    conda clean -tipsy
 
 # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
-
-RUN conda clean -tipsy
 
 CMD ["jupyter console"]
 
