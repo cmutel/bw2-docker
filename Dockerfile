@@ -17,7 +17,7 @@ USER $NB_USER
 RUN conda install --quiet --yes wheel && \
     conda update --yes pip wheel setuptools && \
     conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt whoosh xlsxwriter xlrd unidecode && \
-    conda install --quiet --yes -c conda-forge scikit-umfpack fiona rasterio && \
+    conda install --quiet --yes -c conda-forge scikit-umfpack fiona rasterio rtree && \
     pip install --user --no-cache-dir eight && \
     pip install --user --no-cache-dir brightway2 pandarus constructive_geometries pillow shapely && \
     pip install --user --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3 && \
