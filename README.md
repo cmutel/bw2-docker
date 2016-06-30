@@ -10,3 +10,5 @@ Based on the [Jupyter minimal notebook](https://github.com/jupyter/docker-stacks
 * Options for HTTPS, password auth, and passwordless `sudo`
 
 See Jupyter documentation for usage options.
+
+Docker instances are ephemeral. You will almost certainly want to mount a [data volume](https://docs.docker.com/v1.10/engine/userguide/containers/dockervolumes/).
