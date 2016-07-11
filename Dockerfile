@@ -25,5 +25,11 @@ RUN conda install --quiet --yes wheel && \
 # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
-CMD ["ipython"]
+RUN mkdir /home/jovyan/data
+RUN mkdir /home/jovyan/notebooks
+RUN mkdir /home/jovyan/output
 
+ENV BRIGHTWAY2_DIR /home/jovyan/data
+ENV BRIGHTWAY2_OUTPUT_DIR /home/jovyan/output
+
+WORKDIR /home/jovyan/notebooks
