@@ -15,7 +15,7 @@ USER $NB_USER
 
 # Install Python 3 packages
 RUN conda install --quiet --yes wheel && \
-    conda update --yes pip wheel setuptools && \
+    conda update --quiet --yes pip wheel setuptools ipython && \
     conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt xlsxwriter xlrd unidecode scikit-umfpack fiona rasterio rtree pillow shapely psutil pyproj && \
     pip install --no-cache-dir eight && \
     pip install --no-cache-dir brightway2 && \
