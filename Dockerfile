@@ -15,20 +15,12 @@ USER $NB_USER
 
 # Install Python 3 packages
 RUN conda install --quiet --yes wheel && \
-<<<<<<< Updated upstream
-    conda update --quiet --yes pip wheel setuptools ipython && \
-    conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt xlsxwriter xlrd unidecode scikit-umfpack fiona rasterio rtree pillow shapely psutil pyproj && \
-    pip install --no-cache-dir eight && \
-    pip install --no-cache-dir brightway2 && \
-    pip install --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3 && \
-=======
     conda update --yes pip wheel setuptools && \
     conda install --quiet --yes ipywidgets pandas numexpr matplotlib seaborn scikit-learn cython flask lxml requests nose docopt whoosh xlsxwriter xlrd unidecode psutil && \
     conda install --quiet --yes -c conda-forge scikit-umfpack fiona rasterio rtree pillow shapely && \
     pip install --user --no-cache-dir eight && \
     pip install --user --no-cache-dir brightway2 && \
     pip install --user --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3 && \
->>>>>>> Stashed changes
     conda clean -tipsy
 
 # Activate ipywidgets extension in the environment that runs the notebook server
@@ -40,6 +32,5 @@ RUN mkdir /home/jovyan/output
 
 ENV BRIGHTWAY2_DIR /home/jovyan/data
 ENV BRIGHTWAY2_OUTPUT_DIR /home/jovyan/output
-
 
 WORKDIR /home/jovyan/notebooks
