@@ -32,8 +32,8 @@ RUN mkdir /home/jovyan/data
 RUN mkdir /home/jovyan/notebooks
 RUN mkdir /home/jovyan/output
 
-ENV BRIGHTWAY2_DIR /home/jovyan/data
 ENV BRIGHTWAY2_DOCKER 1
+ENV BRIGHTWAY2_DIR /home/jovyan/data
 ENV BRIGHTWAY2_OUTPUT_DIR /home/jovyan/output
 
 WORKDIR /home/jovyan/notebooks
