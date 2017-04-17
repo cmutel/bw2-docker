@@ -28,6 +28,7 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
 RUN mkdir -p $HOME/.ipython/profile_default/startup
 COPY mplimporthook.py $HOME/.ipython/profile_default/startup/
 
+
 RUN mkdir /home/jovyan/data
 RUN mkdir /home/jovyan/notebooks
 RUN mkdir /home/jovyan/output
