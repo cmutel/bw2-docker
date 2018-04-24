@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-# Install Python 3 packages
+# Install Python packages
 RUN conda install --quiet --yes wheel && \
     conda update --yes pip wheel setuptools && \
     conda install -y -q -c conda-forge -c cmutel -c haasad brightway2 jupyter pypardiso jupyter_contrib_nbextensions jupyter_nbextensions_configurator pandas seaborn scikit-learn fiona rasterio rtree pillow shapely && \
