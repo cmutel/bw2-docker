@@ -7,14 +7,15 @@ USER root
 
 # libav-tools for matplotlib anim
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends libav-tools && \
+    apt-get install -y --no-install-recommends ffmpeg && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
 
 # Install Python packages
-RUN conda install --quiet --yes wheel && \
+RUN conda update --yes -q -c conda-forge -n base conda && \
+    conda install --quiet --yes wheel && \
     conda update --yes pip wheel setuptools && \
     conda install -y -q -c conda-forge -c cmutel -c haasad brightway2 jupyter pypardiso jupyter_contrib_nbextensions jupyter_nbextensions_configurator pandas seaborn scikit-learn fiona rasterio rtree pillow shapely && \
     pip install --user --no-cache-dir https://bitbucket.org/cmutel/brightway2-regional/get/tip.zip#egg=bw2regional-0.3 && \
